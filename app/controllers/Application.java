@@ -14,6 +14,9 @@ public class Application extends Controller {
     }
     
     public static void addUrl(@Required String url){
+    	if(!url.toLowerCase().startsWith("http://")){
+    		url = "http://"+url;
+    	}
     	new Address(url).save();
     	render();
     }
