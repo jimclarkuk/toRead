@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if addresses}
+	#{list items:addresses, as:'address'}
+		<li>
+		${address.url}
+		</li>
+	#{/list}
+#{/if}
+
+<h3>Add a URL</h3>
+ 
+#{form @Application.addUrl()}
+    <p>
+        <label for="content">New url: </label>
+        <textarea name="url" id="url"></textarea>
+    </p>
+    <p>
+        <input type="submit" value="Submit your url:" />
+    </p>
+#{/form}
