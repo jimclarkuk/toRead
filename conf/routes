@@ -4,7 +4,7 @@
 
 # Home page
 GET     /                                       Application.index
-GET		/submit/								Application.addUrl
+GET		/submit/								Application.submit
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

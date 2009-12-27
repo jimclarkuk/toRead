@@ -14,11 +14,22 @@ public class Application extends Controller {
     }
     
     public static void addUrl(@Required String url){
-    	if(!url.toLowerCase().startsWith("http://")){
+    	add(url);
+    	show(null);
+    }
+    public static void submit(@Required String url){
+    	add(url);
+    	show(url);
+    }
+    public static void show(String url){
+    	render(url);
+    }
+
+	private static void add(String url) {
+		if(!url.toLowerCase().startsWith("http://")){
     		url = "http://"+url;
     	}
     	new Address(url).save();
-    	render();
-    }
+	}
 
 }
