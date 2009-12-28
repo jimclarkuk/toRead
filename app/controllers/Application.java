@@ -14,6 +14,11 @@ public class Application extends Controller {
 		User user = null;
 		if (Security.isConnected()) {
 			user = User.find("byEmail", Security.connected()).first();
+			if(user.isAdmin){
+				List<Address> addresses = Address.findAll();
+				render(addresses);
+				return;
+			}
 			List<Address> addresses = Address.find("byUser", user).fetch();
 			render(addresses, user);
 			return;
