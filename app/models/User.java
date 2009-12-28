@@ -27,4 +27,5 @@ public class User extends Model {
 	public static User getDefault() {
 		return find("byEmailAndPassword", "1@1.com", "pass").first();
 	}
+	
 }
