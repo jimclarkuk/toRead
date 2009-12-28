@@ -1,0 +1,1 @@
+javascript:location.href='http://localhost:9000/submit/?url='+encodeURIComponent(location.href)
