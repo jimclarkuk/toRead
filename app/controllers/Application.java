@@ -11,6 +11,13 @@ import play.mvc.*;
 public class Application extends Controller {
 
 	public static void index() {
+		User user = null;
+		if (Security.isConnected()) {
+			user = User.find("byEmail", Security.connected()).first();
+			List<Address> addresses = Address.find("byUser", user).fetch();
+			render(addresses, user);
+			return;
+		}
 		List<Address> addresses = Address.findAll();
 		render(addresses);
 	}

@@ -1,18 +1,33 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{if addresses}
-	#{list items:addresses, as:'address'}
-		<li>
-		<a href="${address.url}">
-			#{if address.user}
-                [${address.user.email}]: 
-            #{/if}
-            ${address.url}
+#{if user}
+<h3>Links for ${user.email}</h3>
+	#{if addresses}
+		#{list items:addresses, as:'address'}
+			<li>
+			<a href="${address.url}">
+        	    ${address.url}
             </a>
-		</li>
-	#{/list}
+			</li>
+		#{/list}
+	#{/if}
 #{/if}
+#{else}
+	<h3>Links for all users</h3>
+	#{if addresses}
+		#{list items:addresses, as:'address'}
+			<li>
+				<a href="${address.url}">
+					#{if address.user}
+        		        [${address.user.email}]: 
+           			#{/if}
+            		${address.url}
+            	</a>
+			</li>
+		#{/list}
+	#{/if}
+#{/else}
 
 <h3>Add a URL</h3>
  
