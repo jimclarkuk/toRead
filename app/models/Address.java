@@ -13,4 +13,11 @@ public class Address extends Model {
 	public Address(String url) {
 		this.url = url;
 	}
+	
+	@Override
+	public String toString() {
+		return "Address [" +
+				"URL: "+url
+				+"]";
+	}
 }
