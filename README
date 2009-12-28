@@ -1,0 +1,12 @@
+ToRead
+============
+
+This is a little app to simply store links I want to read.
+
+Setup
+============
+Copy conf/application-sample.conf to conf/application.conf to get started with an in memory db.
+
+Notes
+============
+conf/bookmark contains a javascript link to submit the currently open page to a local instance of toRead

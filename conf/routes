@@ -13,3 +13,4 @@ GET     /public/                                staticDir:public
 *       /{controller}/{action}                  {controller}.{action}
 
 *      /admin              						module:crud
+*       /                                       module:secure

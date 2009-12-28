@@ -5,7 +5,10 @@
 	#{list items:addresses, as:'address'}
 		<li>
 		<a href="${address.url}">
-                ${address.url}
+			#{if address.user}
+                [${address.user.email}]: 
+            #{/if}
+            ${address.url}
             </a>
 		</li>
 	#{/list}

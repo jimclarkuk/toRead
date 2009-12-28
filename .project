@@ -14,5 +14,5 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources><link><name>crud</name><type>2</type><location>/Developer/play-1.0/modules/crud/app</location></link></linkedResources>
+	<linkedResources><link><name>crud</name><type>2</type><location>/Developer/play-1.0/modules/crud/app</location></link><link><name>secure</name><type>2</type><location>/Developer/play-1.0/modules/secure/app</location></link></linkedResources>
 </projectDescription>
