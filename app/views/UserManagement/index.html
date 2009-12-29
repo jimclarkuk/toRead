@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h3>Add a User</h3>
+ 
+#{form @UserManagement.addNewUser()}
+    <p>
+        <label for="email">Email Address: </label>
+        <textarea name="email" id="email"></textarea>
+    </p>
+    <p>
+        <label for="pass">Password: </label>
+        <textarea name="pass" id="pass"></textarea>
+    </p>
+    <p>
+        <label for="fullname">Full Name: </label>
+        <textarea name="fullname" id="fullname"></textarea>
+    </p>
+    <p>
+        <input type="submit" value="Sign Up:" />
+    </p>
+#{/form}

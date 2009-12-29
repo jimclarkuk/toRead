@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set title:'Sign-up' /}		
+
+#{if success}
+	<h4>New Account Created</h4>
+	${user.email} created
+#{/if}
+#{else}
+	<h4>Ooops</h4>
+	${user.email} already exists
+#{/else}

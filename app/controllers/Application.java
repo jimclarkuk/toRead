@@ -53,5 +53,22 @@ public class Application extends Controller {
 			new Address(url).save();
 		}
 	}
-
+	
+	public static void delete(String url, User user){
+		System.out.println(url);
+		System.out.println(user);
+	}
+	
+	public static void markAsRead(String[] readaddress){
+		if (Security.isConnected()) {
+			User user = User.find("byEmail", Security.connected()).first();
+			for (String add : readaddress) {
+				List<Address> adds = Address.find("byUserAndUrl", user, add).fetch();
+				for (Address address : adds) {
+					address.delete();
+				}
+			}
+		}
+		index();
+	}
 }
