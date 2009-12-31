@@ -1,23 +1,45 @@
 package controllers;
 
 import models.User;
+import play.cache.Cache;
 import play.data.validation.Required;
+import play.libs.Codec;
+import play.libs.Images;
 import play.mvc.Controller;
 
 public class UserManagement extends Controller {
 
 	public static void index(){
-		render();
+		String randomID = Codec.UUID();
+		render(randomID);
 	}
 	
-	public static void addNewUser(@Required String email, @Required String pass, @Required String fullname){
-		boolean success = false;
+	public static void addNewUser(@Required(message="Please enter your email address") String email, 
+			@Required(message="Please enter a password") String pass, 
+			@Required(message="Please enter your username") String fullname, 
+			@Required(message="Please enter the captcha code") String code,
+			String randomID){
+		
+		validation.equals(
+		        code, Cache.get(randomID)
+		    ).message("Invalid code. Please type it again");
+		if(validation.hasErrors()) {
+			render();
+		}
 		User user = User.find("byEmail", email).first(); 
 		if( user == null){
 			user = new User(email,pass, fullname).save();
-			success = true;
+			flash.success("New User %s created!", user.email);
+		} else {
+			flash.success("New User %s already exists please login.", user.email);
 		}
-		
-		render(success, user);
+		render(user);
+	}
+	
+	public static void captcha(String id) {
+		Images.Captcha captcha = Images.captcha();
+	    String code = captcha.getText("#000000");
+	    Cache.set(id, code, "10mn");
+	    renderBinary(captcha);
 	}
 }

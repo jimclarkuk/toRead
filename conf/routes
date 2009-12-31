@@ -13,5 +13,6 @@ GET     /public/                                staticDir:public
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
 
-*      /admin              						module:crud
+#*      /admin              						module:crud
 *       /                                       module:secure
+GET     /captcha                                Application.captcha

@@ -17,6 +17,13 @@
         <textarea name="fullname" id="fullname"></textarea>
     </p>
     <p>
+    	<label for="code">Please type the code below: </label>
+    	<img src="@{UserManagement.captcha(randomID)}" />
+    	<br />
+    	<input type="text" name="code" id="code" size="18" value="" />
+    	<input type="hidden" name="randomID" value="${randomID}" />
+	</p>
+    <p>
         <input type="submit" value="Sign Up:" />
     </p>
 #{/form}

@@ -5,7 +5,8 @@ import java.util.List;
 import models.Address;
 import models.User;
 import play.data.validation.Required;
-import play.mvc.*;
+import play.mvc.Controller;
+import play.mvc.With;
 
 @With(Secure.class)
 public class Application extends Controller {
@@ -71,4 +72,5 @@ public class Application extends Controller {
 		}
 		index();
 	}
+	
 }

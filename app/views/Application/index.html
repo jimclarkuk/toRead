@@ -3,7 +3,7 @@
 <a href="logout">logout</a>
 
 #{if user}
-<h3>Links2 for ${user.email}</h3>
+<h3>Links for ${user.email}</h3>
 	#{if addresses}
 		#{form @Application.markAsRead()}
 			#{list items:addresses, as:'address'}

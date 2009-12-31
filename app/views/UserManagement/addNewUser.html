@@ -1,11 +1,16 @@
 #{extends 'main.html' /}
 #{set title:'Sign-up' /}		
 
-#{if success}
-	<h4>New Account Created</h4>
-	${user.email} created
+#{if flash.success}
+    <p class="success">${flash.success}</p> 
+    <br />
+    redirecting ...
+    <meta HTTP-EQUIV="REFRESH" content="10; url=/logout">
 #{/if}
-#{else}
-	<h4>Ooops</h4>
-	${user.email} already exists
-#{/else}
+
+#{ifErrors}
+    <p class="error">
+        ${errors[0]}
+        <meta HTTP-EQUIV="REFRESH" content="10; url=/adduser/">
+    </p>
+#{/ifErrors}
