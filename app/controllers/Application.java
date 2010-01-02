@@ -30,16 +30,12 @@ public class Application extends Controller {
 
 	public static void addUrl(@Required String url) {
 		add(url);
-		show(null);
+		Application.index();
 	}
 
 	public static void submit(@Required String url) {
 		add(url);
-		show(url);
-	}
-
-	public static void show(String url) {
-		render(url);
+		redirect(url);
 	}
 
 	private static void add(String url) {
@@ -53,11 +49,6 @@ public class Application extends Controller {
 		else {
 			new Address(url).save();
 		}
-	}
-	
-	public static void delete(String url, User user){
-		System.out.println(url);
-		System.out.println(user);
 	}
 	
 	public static void markAsRead(String[] readaddress){

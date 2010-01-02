@@ -5,12 +5,12 @@
     <p class="success">${flash.success}</p> 
     <br />
     redirecting ...
-    <meta HTTP-EQUIV="REFRESH" content="10; url=/logout">
+    <meta HTTP-EQUIV="REFRESH" content="10; url=/2read/logout">
 #{/if}
 
 #{ifErrors}
     <p class="error">
         ${errors[0]}
-        <meta HTTP-EQUIV="REFRESH" content="10; url=/adduser/">
+        <meta HTTP-EQUIV="REFRESH" content="10; url=/2read/adduser/">
     </p>
 #{/ifErrors}
