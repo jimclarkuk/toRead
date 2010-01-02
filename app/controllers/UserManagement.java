@@ -6,6 +6,7 @@ import play.data.validation.Required;
 import play.libs.Codec;
 import play.libs.Images;
 import play.mvc.Controller;
+import play.mvc.Router;
 
 public class UserManagement extends Controller {
 
@@ -24,7 +25,8 @@ public class UserManagement extends Controller {
 		        code, Cache.get(randomID)
 		    ).message("Invalid code. Please type it again");
 		if(validation.hasErrors()) {
-			render();
+			String url = Router.reverse("UserManagement.index").url;
+			render(url);
 		}
 		User user = User.find("byEmail", email).first(); 
 		if( user == null){
@@ -33,7 +35,8 @@ public class UserManagement extends Controller {
 		} else {
 			flash.success("New User %s already exists please login.", user.email);
 		}
-		render(user);
+		String url = Router.reverse("Secure.logout").url;
+		render(user, url);
 	}
 	
 	public static void captcha(String id) {

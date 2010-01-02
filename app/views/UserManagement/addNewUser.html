@@ -4,13 +4,16 @@
 #{if flash.success}
     <p class="success">${flash.success}</p> 
     <br />
-    redirecting ...
-    <meta HTTP-EQUIV="REFRESH" content="10; url=/2read/logout">
+    redirecting ... 
+    <meta HTTP-EQUIV="REFRESH" content="10; url=${url}">
+    
 #{/if}
 
 #{ifErrors}
     <p class="error">
-        ${errors[0]}
-        <meta HTTP-EQUIV="REFRESH" content="10; url=/2read/adduser/">
+        ${errors[0]} <br />
+        redirecting ... 
+        <meta HTTP-EQUIV="REFRESH" content="10; url=${url}">
     </p>
 #{/ifErrors}
+<a href=${url}>Go Now</a>
